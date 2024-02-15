@@ -1,4 +1,5 @@
 import { Router } from "express";
+import PostRouter from "./post-router"
 
 const router: Router = Router()
 
@@ -8,5 +9,7 @@ router.get('/', async (req, res, next) => {
         msg: "Welcome Express JS API with Prisma"
     })
 });
+
+router.use("/api", PostRouter)
 
 export default router
