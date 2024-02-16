@@ -36,10 +36,28 @@ model PostStats {
   post      Post     @relation(fields: [postId], references: [id])
 }
 
+model userdevice {
+  id                   Int     @id @default(autoincrement())
+  devicetype           String  @db.VarChar
+  newAddedColumn       String? @db.VarChar
+  newNewAddedColumn    String? @db.VarChar
+  newNewTwoAddedColumn String? @db.VarChar
+}
+
 /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
-model UserDevices {
-  id         Int   @id @default(autoincrement())
-  devicetype String @db.VarChar
+model newtableexisting {
+  id                 Int     @default(autoincrement())
+  name               String? @db.VarChar
+  addNewColumnAgain  String? @db.VarChar
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model newtableexistingnew {
+  id Int @default(autoincrement())
+
+  @@ignore
 }
 
 enum Role {
