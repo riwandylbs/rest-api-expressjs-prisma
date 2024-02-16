@@ -46,18 +46,14 @@ model userdevice {
 
 /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
 model newtableexisting {
-  id                 Int     @default(autoincrement())
+  id                 Int     @id @default(autoincrement())
   name               String? @db.VarChar
   addNewColumnAgain  String? @db.VarChar
-
-  @@ignore
 }
 
 /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
 model newtableexistingnew {
-  id Int @default(autoincrement())
-
-  @@ignore
+  id Int @id @default(autoincrement())
 }
 
 enum Role {
