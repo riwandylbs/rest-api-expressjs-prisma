@@ -1,11 +1,12 @@
 import { NextFunction, Request, Response } from "express";
-import { getDataPost, getDetailPost, updatePostData } from "../services/Posts";
+import { getDataPost, getDetailPost, updatePostData } from "../services/posts";
 
 export const getDataPostList = async(req: Request, res: Response) => { 
     const getPostList = await getDataPost();
 
     return res.status(200).json({
         code: 200, 
+        success: true,
         message: "Post list",
         data: getPostList
     })
@@ -21,6 +22,7 @@ export const updatePost = async(req: Request, res: Response) => {
 
         return res.status(200).json({
             code: 200, 
+            success: true,
             message: "Post list",
             data: [updateData]
         })
@@ -28,6 +30,7 @@ export const updatePost = async(req: Request, res: Response) => {
         console.log(error)
         return res.status(500).json({
             code: 500, 
+            success: false,
             message: "Something went wrong!",
             data: []
         })
@@ -41,6 +44,7 @@ export const findPostData = async(req: Request, res: Response, next: NextFunctio
         if (idPost == undefined ) {
             return res.status(403).json({
                 code: 403, 
+                success: false,
                 message: "Parameter id cannot null",
                 data: []
             })
@@ -50,6 +54,7 @@ export const findPostData = async(req: Request, res: Response, next: NextFunctio
         if (!post) {
             return res.status(404).json({
                 code: 404, 
+                success: false,
                 message: "Post not found!",
                 data: []
             })
@@ -57,6 +62,7 @@ export const findPostData = async(req: Request, res: Response, next: NextFunctio
 
         return res.status(200).json({
             code: 200, 
+            success: true,
             message: "Post list",
             data: [post]
         })
@@ -64,6 +70,7 @@ export const findPostData = async(req: Request, res: Response, next: NextFunctio
         console.log(error)
         return res.status(500).json({
             code: 500, 
+            success: false,
             message: "Something went wrong!",
             data: []
         })

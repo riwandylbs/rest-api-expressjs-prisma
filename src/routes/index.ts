@@ -7,9 +7,9 @@ router.get('/', async (req, res, next) => {
     return res.send({
         success: true,
         msg: "Welcome Express JS API with Prisma"
-    })
+        })
 });
 
-router.use("/api", PostRouter)
+router.use("/post", PostRouter)
 
 export default router

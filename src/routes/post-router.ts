@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { findPostData, getDataPostList, updatePost } from "../controllers/Posts";
+import { findPostData, getDataPostList, updatePost } from "../controllers/posts";
 
 const router: Router = Router();
 
-router.get("/post", async(req, res) => {
+router.get("/", async(req, res) => {
     return res.send({
         code: 200,
         success: true, 
@@ -11,8 +11,8 @@ router.get("/post", async(req, res) => {
     })
 })
 
-router.get("/post/list", getDataPostList)
-router.post("/post/update", updatePost)
-router.get("/post/detail/:id", findPostData)
+router.get("/list", getDataPostList)
+router.post("/update", updatePost)
+router.get("/detail/:id", findPostData)
 
 export default router
