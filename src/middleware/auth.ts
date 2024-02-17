@@ -25,7 +25,7 @@ export const authentications = async(req: Request, res: Response, next: NextFunc
 
     /*** 
      * Please activate this section if you want to implement JWT validations
-     * Don't forget to install the jwt package before use it npm install jwt
+     * Don't forget to install the jwt package before use it, install jwt -> npm install jwt
         // Authenticate JWT value
         if (!req.headers.authorization) {
             return res.status(400)
